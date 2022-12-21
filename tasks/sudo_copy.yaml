@@ -2,9 +2,11 @@
 ---
 - local_action: command sudo cp -f {{src}} /tmp/._sudo_cp_{{ src | basename }}
   with_items: "{{ loop|default([0]) }}"
+  ignore_errors: true
 
 - local_action: command sudo chmod +r /tmp/._sudo_cp_{{ src | basename }}
   with_items: "{{ loop|default([0]) }}"
+  ignore_errors: true
 
 - copy:
     src: /tmp/._sudo_cp_{{ src | basename }}
