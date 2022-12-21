@@ -13,3 +13,4 @@
     group: "{{ group | default(None) }}"
     mode: "{{ mode | default(None) }}"
   with_items: "{{ loop|default([0]) }}"
+  ignore_errors: true
